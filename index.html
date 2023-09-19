@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body >
+    <h3 style=color:blue> BOOK A CALL </h3>
+    <form action="#"  onsubmit="calling()" >
+        <fieldset>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="email id">Email</label><br>
+            <input type="text" id="email id" name="email">
+            <br>
+            <label for="phone">Phone</label><br>
+            <input type"number" id="phone" name="Phone"><br>
+            <label for="get a call">Get a call</label><br>
+            <input type="time">
+            <input type="date"><br><br><br>
+            <input type="submit" value="Get a call" style=color:orange>
+        </fieldset>
+    </form>
+    <script>
+        function calling() {
+            const a = document.getElementById('name').value;
+            const b = document.getElementById('email id').value;
+            const c = document.getElementById('phone').value;
+            localStorage.setItem('name', a)
+            localStorage.setItem("email id",b)
+            localStorage.removeItem('name')
+        }
+    </script>
+
+</body>
+
+</html>
