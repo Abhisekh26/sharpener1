@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body >
+    <h3 style=color:blue> BOOK A CALL </h3>
+    <form action="#"  onsubmit="calling()" >
+        <fieldset>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="email id">Email</label><br>
+            <input type="text" id="email id" name="email">
+            <br>
+            <label for="phone">Phone</label><br>
+            <input type"number" id="phone" name="Phone"><br>
+            <label for="get a call" id="yu">Get a call</label><br>
+            <input type="time">
+            <input type="date"><br><br><br>
+            <input type="submit" class="btn" value="Get a call" style=color:orange>
+            <!-- <input type="submit" value="DELETE"  style=color:red> -->
+        </fieldset>
+    </form>
+    <ul id="listog"></ul>
+    <script>
+        function calling() {
+            const a = document.getElementById('name').value;
+            const b = document.getElementById('email id').value;
+            const c = document.getElementById('phone').value;
+           
+            const rt={
+               name: a,
+                emailId:b,
+                mobile:c
+
+            }    
+            let myobj_serialized=  JSON.stringify(rt)
+            localStorage.setItem(rt.emailId,myobj_serialized)
+            let myobj_deserialized=JSON.parse(localStorage.getItem("rt"))
+            showonScreen(rt)
+            
+        }
+        function showonScreen(rt){
+            const parente=document.getElementById('listog')
+            const childe=document.createElement('li')
+            childe.textContent= rt.name + ' - ' + rt.emailId+ ' - ' + rt.mobile
+            parente.appendChild(childe)
+            var ucl=document.getElementById("listog")
+            //creating deletebutton
+            var deleteBtn=document.createElement('button')
+            deleteBtn.className="btn"
+            deleteBtn.appendChild(document.createTextNode("delete"))
+            ucl.appendChild(deleteBtn)
+            //adding eventlistner for delete button
+            deleteBtn.addEventListener('click',function(e){
+                localStorage.removeItem(rt.emailId)
+                //removing delete button and element 
+              ucl.removeChild(deleteBtn)
+                parente.removeChild(childe)
+            })
+            
+        }
+    </script>
+
+</body>
+
+</html>
